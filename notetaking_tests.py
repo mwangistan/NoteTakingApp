@@ -25,7 +25,11 @@ class NoteTakingTests(unittest.TestCase):
 		notes_list = mike.create("Remember to buy sugar")
 		self.assertEqual(mike.get(8), "Note Doesn't exist")
 
-	def test_
+	def test_note_delete(self):
+		#Test if delete function can't delete note that doesn't exist
+		mike = NotesApplication("Mike")
+		notes_list = mike.create("Remember to buy sugar")
+		self.assertEqual(mike.delete(4), "Note to be deleted doesn't exist")
 
 
 

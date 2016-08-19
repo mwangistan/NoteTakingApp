@@ -29,8 +29,9 @@ class  NotesApplication(object):
 
 	def search(self, search_text):
 		try:
-			for search_text in notes_list:
-				return "Search results %s " %notes_list
+			for text in notes_list:
+				if search_text in text:
+					return text
 
 		except:
 			return "Sorry. Note not Found"
@@ -38,7 +39,7 @@ class  NotesApplication(object):
 	def delete(self, notes_id):
 		try:
 			deleted_note = notes_list.pop([notes_id])
-			return "You deleted %s " %deleted_note
+			return deleted_note
 
 		except:
 			return "Note to be deleted doesn't exist"
@@ -51,4 +52,7 @@ class  NotesApplication(object):
 			return "Note to be edited doesn't exist"
 
 
-		
+s = NotesApplication("Mike")
+s.create("Remember")
+print (s.list())
+print(s.search('Remember'))
