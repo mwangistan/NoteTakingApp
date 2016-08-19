@@ -31,7 +31,7 @@ class  NotesApplication(object):
 	def search(self, search_text):
 
 		for text in self.notes_list:
-			if text.find(search_text) > -1:
+			if text['content'].find(search_text) > -1:
 				return ('Showing results for %s \n Note ID [%s] \n %s \n By Author [%s]'
 				 %(search_text, self.notes_list.indexOf(text), text, self.author))
 
@@ -47,12 +47,8 @@ class  NotesApplication(object):
 
 	def edit(self, notes_id, new_content):
 		try:
-			notes_list.insert(notes_id, new_content)
+			notes_list.insert(notes_id, {'content': new_content, 'author': self.author})
 			return notes_list
 		except:
 			return "Note to be edited doesn't exist"
 
-
-s = NotesApplication("Mike")
-print (s.create("I rememeber"))
-print 
