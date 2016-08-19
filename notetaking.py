@@ -28,10 +28,11 @@ class  NotesApplication(object):
 			return "Note Doesn't exist"
 
 	def search(self, search_text):
-		print search_text
+
 		for text in self.notes_list:
 			if text.find(search_text) > -1:
-				return text	
+				return ('Showing results for %s \n Note ID [%s] \n %s \n By Author [%s]'
+				 %(search_text, self.notes_list.indexOf(text), text, self.author))
 
 			return 'Sorry. Note not Found'
 
@@ -50,6 +51,4 @@ class  NotesApplication(object):
 		except:
 			return "Note to be edited doesn't exist"
 
-mike = NotesApplication("Mike")
-mike.create("Remember to buy sugar")
-print(mike.search("Python"))
+
