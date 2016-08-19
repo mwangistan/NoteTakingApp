@@ -14,9 +14,9 @@ class NoteTakingTests(unittest.TestCase):
 
 
 	def test_note_list(self):
-		#Test if note list function returns note objects
+		#Test if note list function returns non for empty list
 		mike = NotesApplication("Mike")
-		notes_list = mike.create("Remember to buy sugar")
+		mike.create()
 		self.assertEqual(mike.list(), notes_list)
 
 	def test_note_get(self):
@@ -42,6 +42,12 @@ class NoteTakingTests(unittest.TestCase):
 		mike = NotesApplication("Mike")
 		notes_list = mike.create("Remember to buy sugar")
 		self.assertEqual(mike.search("Python"), "Sorry. Note not Found")		
+
+	def test_object_is_instance(self):
+		#test if an object is an instance of the class
+		mike = NotesApplication('mike')
+		with self.assertRaises(TypeError):
+			isinstance(mike, NotesApplication)
 
 
 

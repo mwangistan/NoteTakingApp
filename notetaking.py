@@ -19,8 +19,12 @@ class  NotesApplication(object):
 			return "Note content can't be empty"
 
 	def list(self):
-		for note in self.notes_list:
-			return "Note ID: [%s]\n %s\n By Author[%s]" %(self.notes_list.indexOf(note), note['content'], note['author'])
+		if self.notes_list != []:
+			for note in self.notes_list:
+				return "Note ID: [%s]\n %s\n By Author[%s]" %(self.notes_list.indexOf(note), note['content'], note['author'])
+
+		else:
+			return "No notes available to be shown"
 
 	def get(self, note_id):
 		try:
