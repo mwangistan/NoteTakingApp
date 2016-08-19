@@ -12,14 +12,15 @@ class  NotesApplication(object):
 		note_content = str(note_content)
 
 		if note_content != 'None':
-			self.notes_list.append(note_content)
+			self.notes_list.append({'content': note_content, 'author':self.author})
 			return self.notes_list
 
 		else:
 			return "Note content can't be empty"
 
 	def list(self):
-		return self.notes_list
+		for note in self.notes_list:
+			return "Note ID: [%s]\n %s\n By Author[%s]" %(self.notes_list.indexOf(note), note['content'], note['author'])
 
 	def get(self, note_id):
 		try:
@@ -52,3 +53,6 @@ class  NotesApplication(object):
 			return "Note to be edited doesn't exist"
 
 
+s = NotesApplication("Mike")
+print (s.create("I rememeber"))
+print 
