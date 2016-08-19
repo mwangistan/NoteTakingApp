@@ -28,13 +28,12 @@ class  NotesApplication(object):
 			return "Note Doesn't exist"
 
 	def search(self, search_text):
-		try:
-			for text in notes_list:
-				if search_text in text:
-					return text
+		print search_text
+		for text in self.notes_list:
+			if text.find(search_text) > -1:
+				return text	
 
-		except:
-			return "Sorry. Note not Found"
+			return 'Sorry. Note not Found'
 
 	def delete(self, notes_id):
 		try:
@@ -51,3 +50,6 @@ class  NotesApplication(object):
 		except:
 			return "Note to be edited doesn't exist"
 
+mike = NotesApplication("Mike")
+mike.create("Remember to buy sugar")
+print(mike.search("Python"))

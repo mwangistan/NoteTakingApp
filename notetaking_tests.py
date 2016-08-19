@@ -37,7 +37,11 @@ class NoteTakingTests(unittest.TestCase):
 		notes_list = mike.create("Remember to buy sugar")
 		self.assertEqual(mike.edit(4, "Save all files to git"), "Note to be edited doesn't exist")
 
-
+	def test_note_search(self):
+		#Test if search returns not found when search text doesn't exist
+		mike = NotesApplication("Mike")
+		notes_list = mike.create("Remember to buy sugar")
+		self.assertEqual(mike.search("Python"), "Sorry. Note not Found")		
 
 
 
