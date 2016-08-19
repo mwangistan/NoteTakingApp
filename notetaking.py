@@ -51,8 +51,3 @@ class  NotesApplication(object):
 		except:
 			return "Note to be edited doesn't exist"
 
-
-s = NotesApplication("Mike")
-s.create("Remember")
-print (s.list())
-print(s.search('Remember'))

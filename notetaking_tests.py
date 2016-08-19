@@ -31,6 +31,13 @@ class NoteTakingTests(unittest.TestCase):
 		notes_list = mike.create("Remember to buy sugar")
 		self.assertEqual(mike.delete(4), "Note to be deleted doesn't exist")
 
+	def test_note_edit(self):
+		#Test if edit function can't edit a note that doesn't exist
+		mike = NotesApplication("Mike")
+		notes_list = mike.create("Remember to buy sugar")
+		self.assertEqual(mike.edit(4, "Save all files to git"), "Note to be edited doesn't exist")
+
+
 
 
 
